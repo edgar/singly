@@ -1,7 +1,9 @@
-# Singlyr [![Build Status](https://secure.travis-ci.org/edgar/singlyr.png)](http://travis-ci.org/edgar/singlyr)
-
-
+# Singlyr [![Build Status](https://secure.travis-ci.org/edgar/singlyr.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/edgar/singlyr.png?travis)][gemnasium]
 A gem for Singly API - http://dev.singly.com
+
+[travis]: http://travis-ci.org/edgar/singlyr
+[gemnasium]: https://gemnasium.com/edgar/singlyr
+
 
 ## Installation
 
