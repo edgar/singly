@@ -2,6 +2,9 @@
 
 A gem for Singly API - http://dev.singly.com
 
+[travis]: http://travis-ci.org/edgar/singlyr
+[gemnasium]: https://gemnasium.com/edgar/singlyr
+
 ## Installation
 
 Add this line to your application's Gemfile:
