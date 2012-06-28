@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('webmock', '~> 1.8.7')
   gem.add_development_dependency 'yard'
   gem.add_development_dependency 'bluecloth'
-  gem.add_development_dependency 'json'
+  gem.add_development_dependency 'json' # needed for ruby 1.8.7
   gem.add_runtime_dependency('faraday', '~> 0.8.1')
   gem.add_runtime_dependency('faraday_middleware', '~> 0.8.7')
   gem.add_runtime_dependency('multi_json', '~> 1.3.6')
