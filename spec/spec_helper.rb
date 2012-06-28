@@ -3,6 +3,18 @@ require 'singlyr'
 require 'rspec'
 require 'webmock/rspec'
 
+begin
+  require 'simplecov'
+rescue LoadError
+  # ignore
+else
+  SimpleCov.start do
+    add_group 'Singlyr', 'lib/singlyr'
+    add_group 'Faraday Middleware', 'lib/faraday'
+    add_group 'Specs', 'spec'
+  end
+end
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true

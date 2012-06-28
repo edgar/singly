@@ -20,7 +20,7 @@ module Singlyr
         connection.adapter(adapter)
         connection.use FaradayMiddleware::Mashify unless raw
         connection.use Faraday::Response::ParseJson unless raw
-        #connection.use FaradayMiddleware::RaiseHttpException
+        connection.use FaradayMiddleware::RaiseHttpException
       end
     end
   end

@@ -13,7 +13,7 @@ module Singlyr
       end
 
       def service_profile(service_name)
-        get("profiles/#{service_name}")
+        get("profiles/#{service_name.to_s}")
       end
 
     end
