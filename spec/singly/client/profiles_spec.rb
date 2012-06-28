@@ -62,7 +62,7 @@ describe Singly::Client do
   Singly::Client::SERVICES.each do |service|
     describe ".#{service}_profile" do
       it "should get the correct resource" do
-        @client.should_receive(:service_profile).with(service).and_return(true)
+        @client.should_receive(:service_profile).with(service, {}).and_return(true)
         @client.send "#{service}_profile"
       end
     end
