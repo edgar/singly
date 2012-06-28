@@ -1,4 +1,4 @@
-module Singlyr
+module Singly
   # Defines HTTP request methods
   module OAuth
     # Return URL for OAuth authorization

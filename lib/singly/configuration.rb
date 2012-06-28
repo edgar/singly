@@ -1,10 +1,10 @@
 require 'faraday'
 require File.expand_path('../version', __FILE__)
 
-module Singlyr
+module Singly
   # Defines constants and methods related to configuration
   module Configuration
-    # An array of valid keys in the options hash when configuring a {Singlyr::API}
+    # An array of valid keys in the options hash when configuring a {Singly::API}
     VALID_OPTIONS_KEYS = [
       :adapter,
       :client_id,
@@ -51,7 +51,7 @@ module Singlyr
     DEFAULT_PROXY = nil
 
     # The user agent that will be sent to the API endpoint if none is set
-    DEFAULT_USER_AGENT = "Singlyr #{Singlyr::VERSION}".freeze
+    DEFAULT_USER_AGENT = "Singly #{Singly::VERSION}".freeze
 
     # @private
     attr_accessor *VALID_OPTIONS_KEYS

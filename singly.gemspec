@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/singlyr/version', __FILE__)
+require File.expand_path('../lib/singly/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
@@ -14,12 +14,12 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Edgar Gonzalez"]
   gem.email         = ["edgargonzalez@gmail.com"]
   gem.description   = %q{A ruby wrapper for Singly API}
-  gem.homepage      = "http://github.com/edgar/singlyr"
+  gem.homepage      = "http://github.com/edgar/singly"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "singlyr"
+  gem.name          = "singly"
   gem.require_paths = ["lib"]
-  gem.version       = Singlyr::VERSION
+  gem.version       = Singly::VERSION
 end

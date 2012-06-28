@@ -1,4 +1,4 @@
-module Singlyr
+module Singly
   # Defines HTTP request methods
   module Request
     # Perform an HTTP GET request

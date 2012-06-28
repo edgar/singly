@@ -1,4 +1,4 @@
-module Singlyr
+module Singly
   class Client
     # Defines methods related to profiles
     module Profiles
@@ -6,7 +6,7 @@ module Singlyr
         get("profiles")
       end
 
-      Singlyr::Client::SERVICES.each do |service_name|
+      Singly::Client::SERVICES.each do |service_name|
         define_method "#{service_name.to_s}_profile" do
           service_profile(service_name)
         end

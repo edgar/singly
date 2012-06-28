@@ -2,7 +2,7 @@ require File.expand_path('../connection', __FILE__)
 require File.expand_path('../request', __FILE__)
 require File.expand_path('../oauth', __FILE__)
 
-module Singlyr
+module Singly
   # @private
   class API
     # @private
@@ -10,7 +10,7 @@ module Singlyr
 
     # Creates a new API
     def initialize(options={})
-      options = Singlyr.options.merge(options)
+      options = Singly.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end

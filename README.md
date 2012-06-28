@@ -1,15 +1,15 @@
-# Singlyr [![Build Status](https://secure.travis-ci.org/edgar/singlyr.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/edgar/singlyr.png?travis)][gemnasium]
+# Singly [![Build Status](https://secure.travis-ci.org/edgar/singly.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/edgar/singly.png?travis)][gemnasium]
 A gem for Singly API - http://dev.singly.com
 
-[travis]: http://travis-ci.org/edgar/singlyr
-[gemnasium]: https://gemnasium.com/edgar/singlyr
+[travis]: http://travis-ci.org/edgar/singly
+[gemnasium]: https://gemnasium.com/edgar/singly
 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'singlyr'
+    gem 'singly'
 
 And then execute:
 
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install singlyr
+    $ gem install singly
 
 ## Usage
 

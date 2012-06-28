@@ -1,4 +1,4 @@
-module Singlyr
+module Singly
   class Client < API
 
   SERVICES = [
@@ -20,6 +20,6 @@ module Singlyr
 
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
 
-    include Singlyr::Client::Profiles
+    include Singly::Client::Profiles
   end
 end

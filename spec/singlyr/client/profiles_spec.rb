@@ -1,8 +1,8 @@
 require File.expand_path('../../../spec_helper', __FILE__)
 
-describe Singlyr::Client do
+describe Singly::Client do
   before do
-    @client = Singlyr::Client.new(:client_id => 'CID', :client_secret => 'CS', :access_token => 'AT')
+    @client = Singly::Client.new(:client_id => 'CID', :client_secret => 'CS', :access_token => 'AT')
   end
 
   describe ".profiles" do
@@ -53,13 +53,13 @@ describe Singlyr::Client do
       end
 
       it "should raise NotFound exception" do
-        expect {@client.service_profile(:tumblr)}.to raise_error(Singlyr::NotFound)
+        expect {@client.service_profile(:tumblr)}.to raise_error(Singly::NotFound)
       end
     end
 
   end
 
-  Singlyr::Client::SERVICES.each do |service|
+  Singly::Client::SERVICES.each do |service|
     describe ".#{service}_profile" do
       it "should get the correct resource" do
         @client.should_receive(:service_profile).with(service).and_return(true)

@@ -8,7 +8,7 @@ module FaradayMiddleware
       @app.call(env).on_complete do |response|
         case response[:status].to_i
         when 404
-          raise Singlyr::NotFound, error_message(response)
+          raise Singly::NotFound, error_message(response)
         end
       end
     end

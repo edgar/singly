@@ -1,7 +1,7 @@
 require 'faraday_middleware'
 Dir[File.expand_path('../../faraday/*.rb', __FILE__)].each{|f| require f}
 
-module Singlyr
+module Singly
   # @private
   module Connection
     private

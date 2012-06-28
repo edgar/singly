@@ -1,5 +1,5 @@
 $:.unshift File.dirname(__FILE__) + '/../lib'
-require 'singlyr'
+require 'singly'
 require 'rspec'
 require 'webmock/rspec'
 
@@ -9,7 +9,7 @@ rescue LoadError
   # ignore
 else
   SimpleCov.start do
-    add_group 'Singlyr', 'lib/singlyr'
+    add_group 'Singly', 'lib/singly'
     add_group 'Faraday Middleware', 'lib/faraday'
     add_group 'Specs', 'spec'
   end
@@ -23,35 +23,35 @@ RSpec.configure do |config|
 end
 
 def a_delete(path)
-  a_request(:delete, Singlyr.endpoint + path)
+  a_request(:delete, Singly.endpoint + path)
 end
 
 def a_get(path)
-  a_request(:get, Singlyr.endpoint + path)
+  a_request(:get, Singly.endpoint + path)
 end
 
 def a_post(path)
-  a_request(:post, Singlyr.endpoint + path)
+  a_request(:post, Singly.endpoint + path)
 end
 
 def a_put(path)
-  a_request(:put, Singlyr.endpoint + path)
+  a_request(:put, Singly.endpoint + path)
 end
 
 def stub_delete(path)
-  stub_request(:delete, Singlyr.endpoint + path)
+  stub_request(:delete, Singly.endpoint + path)
 end
 
 def stub_get(path)
-  stub_request(:get, Singlyr.endpoint + path)
+  stub_request(:get, Singly.endpoint + path)
 end
 
 def stub_post(path)
-  stub_request(:post, Singlyr.endpoint + path)
+  stub_request(:post, Singly.endpoint + path)
 end
 
 def stub_put(path)
-  stub_request(:put, Singlyr.endpoint + path)
+  stub_request(:put, Singly.endpoint + path)
 end
 
 def fixture_path

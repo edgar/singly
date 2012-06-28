@@ -1,5 +1,5 @@
-module Singlyr
-  # Custom error class for rescuing from all Singlyr errors
+module Singly
+  # Custom error class for rescuing from all Singly errors
   class Error < StandardError; end
 
   # Raised when Sinlgy returns the HTTP status code 404
