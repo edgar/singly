@@ -19,6 +19,12 @@ Or install it yourself as:
 
     $ gem install singly
 
+## Ruby 1.8.7 and JSON
+
+Singly gem use [multi_json](https://github.com/intridea/multi_json) gem,
+if you plan to use singly gem with ruby 1.8.7 you need to require a supporting
+library like yajl. That is because json was added to stdlib in ruby 1.9.
+
 ## Usage
 
 TODO: Write usage instructions here
