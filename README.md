@@ -19,9 +19,56 @@ Or install it yourself as:
 
     $ gem install singly
 
-## Usage
+## Sample Application
+    require "sinatra"
+    require "singly"
 
-TODO: Write usage instructions here
+    enable :sessions
+
+    CALLBACK_URL = "http://localhost:4567/oauth/callback"
+
+    Singly.configure do |config|
+      config.client_id = "YOUR_CLIENT_ID"
+      config.client_secret = "YOUR_CLIENT_SECRET"
+    end
+
+    get "/" do
+      '<a href="/oauth/connect">Connect with Singly</a>'
+    end
+
+    get "/oauth/connect" do
+      redirect Singly.authorize_url(:redirect_uri => CALLBACK_URL)
+    end
+
+    get "/oauth/callback" do
+      response = Singly.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
+      session[:access_token] = response.access_token
+      redirect "/feed"
+    end
+
+    get "/feed" do
+      client = Singly.client(:access_token => session[:access_token])
+      profiles = client.profiles
+
+      html = "<h1>#{profiles.id}</h1>"
+      html
+    end
+
+## Usage Examples
+    require "rubygems"
+    require "singly"
+
+    # Get a list of the profiles linked to current account
+    puts Instagram.profiles
+
+    # All methods require authentication (either by client ID/secret or access token).
+    # To get your Singly OAuth credentials, register an app at http://dev.singly.com
+    Singly.configure do |config|
+      config.client_id = YOUR_CLIENT_KEY
+      config.client_secret = YOUR_CLIENT_SECRET
+      config.access_token = YOUR_ACCESS_TOKEN
+    end
+
 
 ## Ruby 1.8.7 and multi_json
 
