@@ -29,8 +29,8 @@ describe Singly::Client do
     end
   end
 
-  describe ".service_profile" do
-    context "when specifi profile is linked" do
+  describe ".profile" do
+    context "when specific profile is linked" do
       before do
         stub_get("profiles/twitter").
           with(:query => {:access_token => @client.access_token}).
@@ -38,7 +38,7 @@ describe Singly::Client do
       end
 
       it "should get the correct resource" do
-        @client.service_profile(:twitter)
+        @client.profile(:twitter)
         a_get("profiles/twitter").
           with(:query => {:access_token => @client.access_token}).
           should have_been_made
@@ -53,7 +53,7 @@ describe Singly::Client do
       end
 
       it "should raise NotFound exception" do
-        expect {@client.service_profile(:tumblr)}.to raise_error(Singly::NotFound)
+        expect {@client.profile(:tumblr)}.to raise_error(Singly::NotFound)
       end
     end
 
