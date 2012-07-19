@@ -3,7 +3,7 @@ require File.expand_path('../lib/singly/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
-  gem.add_development_dependency('rspec', '~> 2.10.0')
+  gem.add_development_dependency('rspec', '~> 2.11.0')
   gem.add_development_dependency('webmock', '~> 1.8.7')
   gem.add_development_dependency 'yard'
   gem.add_development_dependency 'bluecloth'
