@@ -56,6 +56,23 @@ describe Singly::Client do
         expect {@client.profile(:tumblr)}.to raise_error(Singly::NotFound)
       end
     end
-
   end
+
+  describe ".delete_profile" do
+    before do
+      stub_post("profiles").
+        with(:body => {:access_token => @client.access_token,
+                       :delete => "foo@tumblr"}).
+        to_return(:body => fixture("delete_success.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it "should get the correct resource" do
+      @client.delete_profile(:tumblr, 'foo')
+      a_post("profiles").
+        with(:body => {:access_token => @client.access_token,
+                       :delete => "foo@tumblr"}).
+        should have_been_made
+    end
+  end
+
 end
