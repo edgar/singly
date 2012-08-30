@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.summary       = %q{A ruby wrapper for Singly API}
   gem.name          = "singly"
   gem.require_paths = ["lib"]
   gem.version       = Singly::VERSION.dup
