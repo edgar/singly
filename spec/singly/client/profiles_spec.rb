@@ -21,11 +21,11 @@ describe Singly::Client do
 
     it "should return profiles info" do
       profiles = @client.profiles
-      profiles.id.should == 'febef5b48e5dc000000000ff63233f35'
-      profiles.twitter.should == ['111111']
-      profiles.facebook.should == ['222222']
-      profiles.instagram.should == ['333333']
-      profiles.foursquare.should == ['444444']
+      profiles.id.should be == 'febef5b48e5dc000000000ff63233f35'
+      profiles.twitter.should be == ['111111']
+      profiles.facebook.should be == ['222222']
+      profiles.instagram.should be == ['333333']
+      profiles.foursquare.should be == ['444444']
     end
   end
 
@@ -72,6 +72,43 @@ describe Singly::Client do
         with(:body => {:access_token => @client.access_token,
                        :delete => "foo@tumblr"}).
         should have_been_made
+    end
+  end
+
+  describe ".link_profile" do
+    context "when called without an account" do
+      let(:facebook_token) { "facebook_token"}
+
+      let(:params) do
+        {
+          :client_id => @client.client_id,
+          :client_secret => @client.client_secret,
+          :token => facebook_token
+        }
+      end
+
+      context "when facebook token is valid" do
+        before do
+          stub_get("auth/facebook/apply").
+            with(:query => params).
+            to_return(:body => fixture("link_profile/success.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        end
+
+        it "should get the proper resource" do
+          @client.link_profile(:facebook, facebook_token)
+          a_get("auth/facebook/apply").
+            with(:query => params).
+            should have_been_made
+        end
+
+        subject { @client.link_profile(:facebook, facebook_token) }
+
+        it { be_instance_of Hash }
+        it { subject['account'].should == "febef55445720ff63233f35" }
+      end
+
+      context "when facebook token is invalid" do
+      end
     end
   end
 

@@ -14,10 +14,6 @@ module Singly
       :wordpress
     ].freeze
 
-    def self.service_names
-      %w(twitter facebook)
-    end
-
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
 
     include Singly::Client::Profiles

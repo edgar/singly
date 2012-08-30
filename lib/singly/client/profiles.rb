@@ -44,11 +44,28 @@ module Singly
         post(profiles_path, {:delete => "#{service_profile_id}@#{service_name.to_s}"}, raw=true)
       end
 
+      #
+      # TO-DO account param
+      #
+      def link_profile(service_name, token, token_secret = nil)
+        params = {
+          :client_id => client_id,
+          :client_secret => client_secret,
+          :token => token
+        }
+        params[:token_secret] = token_secret if token_secret
+        get(link_profile_path(service_name), params)
+      end
+
       protected
 
       def profiles_path(service_name=nil)
         return "profiles" unless service_name
         "profiles/#{service_name.to_s}"
+      end
+
+      def link_profile_path(service_name)
+        "auth/#{service_name.to_s}/apply"
       end
     end
   end
