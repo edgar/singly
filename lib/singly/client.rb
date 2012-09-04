@@ -17,5 +17,6 @@ module Singly
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
 
     include Singly::Client::Profiles
+    include Singly::Client::Photos
   end
 end
