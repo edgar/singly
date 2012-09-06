@@ -55,6 +55,8 @@ module Singly
       # @param [String] account If an existing account is known and this auth
       #   should connect the new profile into an existing account, it can be
       #   specified here, the fallback will always create a new account
+      # @return [Hashie::Mash] An object containing the singly account id, app
+      #   (client_id) and profile id on the remote service.
       # @example Connect a facebook account to an existing account
       #   Singly.link_profile(:facebook, 'foo', nil, 12345)
       def link_profile(service_name, token, token_secret = nil, account = nil)
