@@ -45,15 +45,26 @@ module Singly
       end
 
       #
-      # TO-DO account param
+      # Connect a service profile to an account. If no account is specified, it
+      # will create a new account.
       #
-      def link_profile(service_name, token, token_secret = nil)
+      # @param [Symbol] service_name the name of the remote service
+      # @param [String] token the access token value for the service
+      # @param [String] token_secret only for OAuth 1 based services (like
+      #   twitter and tumblr) is this required
+      # @param [String] account If an existing account is known and this auth
+      #   should connect the new profile into an existing account, it can be
+      #   specified here, the fallback will always create a new account
+      # @example Connect a facebook account to an existing account
+      #   Singly.link_profile(:facebook, 'foo', nil, 12345)
+      def link_profile(service_name, token, token_secret = nil, account = nil)
         params = {
           :client_id => client_id,
           :client_secret => client_secret,
           :token => token
         }
         params[:token_secret] = token_secret if token_secret
+        params[:account] = account if account
         get(link_profile_path(service_name), params)
       end
 
