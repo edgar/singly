@@ -17,10 +17,11 @@ module Singly
       Faraday::Connection.new(options) do |connection|
         connection.use FaradayMiddleware::OAuth2, client_id, access_token
         connection.use Faraday::Request::UrlEncoded
-        connection.adapter(adapter)
         connection.use FaradayMiddleware::Mashify unless raw
         connection.use Faraday::Response::ParseJson unless raw
         connection.use FaradayMiddleware::RaiseHttpException
+        connection.use Faraday::Response::Logger if debug
+        connection.adapter(adapter)
       end
     end
   end

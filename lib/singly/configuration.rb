@@ -13,7 +13,8 @@ module Singly
       :endpoint,
       :format,
       :user_agent,
-      :proxy
+      :proxy,
+      :debug
     ].freeze
 
     # An array of valid request/response formats
@@ -50,6 +51,9 @@ module Singly
     # By default, don't use a proxy server
     DEFAULT_PROXY = nil
 
+    # By default, dont' log the request/response
+    DEFAULT_DEBUG = false
+
     # The user agent that will be sent to the API endpoint if none is set
     DEFAULT_USER_AGENT = "Singly #{Singly::VERSION}".freeze
 
@@ -83,6 +87,7 @@ module Singly
       self.format         = DEFAULT_FORMAT
       self.user_agent     = DEFAULT_USER_AGENT
       self.proxy          = DEFAULT_PROXY
+      self.debug          = DEFAULT_DEBUG
     end
   end
 end
