@@ -61,7 +61,7 @@ module Singly
       #   Singly.link_profile(:facebook, 'foo', nil, 12345)
       def link_profile(service_name, token, token_secret = nil, account = nil)
         params = {
-          :client_id => client_id,
+          #:client_id => client_id, already added by OAuth2 middleware
           :client_secret => client_secret,
           :token => token
         }
